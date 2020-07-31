@@ -1,0 +1,24 @@
+{
+  "Type" : "Command",
+  "Name" : "SetHotList",
+  "Detail" :
+  {
+    "HotList" : [
+      {
+        "Apply" : true,
+        "CurrencyIndex" : 0,
+        "Value" : 100,
+        "SerialNumber" : "3_4%"
+      },
+      {
+        "Apply" : true,
+        "CurrencyIndex" : 1,
+        "Value" : 10,
+        "SerialNumber" : "abc%"
+      }
+    ],
+    "Hash" : "4c716d4cf211c7b7d2f3233c941771ad0507ea5bacf93b492766aa41ae9f720d"
+  },
+  "Version" : 1,
+  "ID" : "{00000000-0000-0000-0000-000000000000}"
+}

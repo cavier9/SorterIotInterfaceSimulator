@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B1BB6D7F-C7B0-4FB6-B0F4-EC8689E57C5B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Glory.SorterInterface</RootNamespace>
+    <AssemblyName>SorterIotInterfaceSdk</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;M2MQTT_V3, JSON_SERIALIZER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;M2MQTT_V3, JSON_SERIALIZER</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>WFPresentacion_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="M2Mqtt.Net, Version=4.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\M2Mqtt.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Exceptions\SorterIfConnectionException.cs" />
+    <Compile Include="Ftp\FTPPattern.cs" />
+    <Compile Include="MessageDetail\ResultCode.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Command\SetOperator.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Command\GetDeviceInformation.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Command\CreateSession.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Event\Connected.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Event\OperatorChanged.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Event\Disconnected.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Event\SessionClosed.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Event\CounterfeitDetected.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Response\GetDeviceInformation.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Response\SetOperator.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Response\CloseSession.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\Response\CreateSession.cs" />
+    <Compile Include="MessageFormat\JsonSerializer\Message\SorterIfMessageFormat.cs" />
+    <Compile Include="Message\ISorterIfMessage.cs" />
+    <Compile Include="Message\MessageName.cs" />
+    <Compile Include="Message\MessageType.cs" />
+    <Compile Include="Message\MessageVersion.cs" />
+    <Compile Include="Message\ReceiveMessage.cs" />
+    <Compile Include="Protocol\Mqtt\ReceiveProcessDelegate.cs" />
+    <Compile Include="SorterInterfaceClient\ISendLowMessage.cs" />
+    <Compile Include="SorterInterfaceClient\ISorterIfProtocolBase.cs" />
+    <Compile Include="SorterInterfaceClient\Log\IMessageLog.cs" />
+    <Compile Include="SorterInterfaceClient\Log\MessageLog.cs" />
+    <Compile Include="SorterInterfaceClient\System\ISorterIfProtocol.cs" />
+    <Compile Include="SorterInterfaceClient\SorterIfProtocolBase.cs" />
+    <Compile Include="SorterInterfaceClient\ISorterIfClientBase.cs" />
+    <Compile Include="SorterInterfaceClient\NodeType.cs" />
+    <Compile Include="SorterInterfaceClient\ReConnect\IReconnectThread.cs" />
+    <Compile Include="SorterInterfaceClient\ReConnect\ReconnectThread.cs" />
+    <Compile Include="SorterInterfaceClient\System\ISorterIfClient.cs" />
+    <Compile Include="SorterInterfaceClient\System\Session\SessionManager.cs" />
+    <Compile Include="SorterInterfaceClient\System\SorterIfProtocol.cs" />
+    <Compile Include="SorterInterfaceClient\System\SorterIfClient.cs" />
+    <Compile Include="SorterInterfaceClient\SslProtocols.cs" />
+    <Compile Include="Ftp\Access\FtpAccess.cs" />
+    <Compile Include="Ftp\Client\FtpClient.cs" />
+    <Compile Include="Ftp\FTPConfigulation.cs" />
+    <Compile Include="Ftp\IClient\IFtpClient.cs" />
+    <Compile Include="Ftp\SslHelper.cs" />
+    <Compile Include="Protocol\Mqtt\QosLevel.cs" />
+    <Compile Include="Protocol\Mqtt\IClient\IMqttProtocolClient.cs" />
+    <Compile Include="Protocol\Mqtt\IMqttProtocol.cs" />
+    <Compile Include="Protocol\Mqtt\MqttProtocol.cs" />
+    <Compile Include="Protocol\Mqtt\Client\MqttProtocolClient.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol\Mqtt\Topic.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\M2Mqtt.Net.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WFPresentacion_TemporaryKey.pfx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

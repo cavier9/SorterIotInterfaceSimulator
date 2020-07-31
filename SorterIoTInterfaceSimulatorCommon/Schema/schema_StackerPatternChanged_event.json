@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for StackerPatternChanged event",
+    "type": "object",
+    "required": [ "PatternIndex" ],
+    "additionalProperties": false,
+    "properties": {
+        "PatternIndex": { "type": "number", "maximum": 9 }
+    }
+}

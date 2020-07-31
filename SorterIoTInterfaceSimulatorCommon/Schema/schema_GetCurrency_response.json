@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for GetCurrency response",
+    "type": "object",
+    "required": [ "Result", "CurrencyIndex" ],
+    "additionalProperties": false,
+    "properties": {
+        "Result": { "type": "string", "enum": [ "200 Success", "400 Bad Request", "500 Internal Device Error", "402 Invalid Command", "501 Locked by other system" ] },
+        "CurrencyIndex": { "type": [ "integer", "null" ], "minimum": -1, "maximum": 15 }
+    }
+}

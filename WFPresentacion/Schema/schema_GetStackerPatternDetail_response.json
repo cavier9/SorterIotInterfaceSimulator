@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for GetStackePatternDetail response",
+    "type": "object",
+    "required": [ "Result", "StackerPattern" ],
+    "additionalProperties": false,
+    "properties": {
+        "Result": { "type": "string", "enum": [ "200 Success", "400 Bad Request", "500 Internal Device Error", "402 Invalid Command", "501 Locked by other system" ] },
+        "StackerPattern": {
+            "type": "object",
+            "required": [ "ExpeditedStacker", "CountMode", "VersionType", "StackerSetting" ],
+            "additionalProperties": false,
+            "properties": {
+                "Name": {"type": "string", "minLength": 1, "maxLength":15 },
+                "ExpeditedStacker": { "type": "string", "enum": [ "Ascending", "Descending" ] },
+                "CountMode": { "type": "boolean" },
+                "VersionType": { "type": "number", "maximum": 3 },
+                "StackerSetting": {
+                    "type": "array",
+                    "maxItems": 2,
+                    "items": {
+                        "type": "object",
+                        "required": [ "Currency", "Denomination", "NoteVersion", "Direction", "NoteType" ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "Currency": { "type": "string", "enum": [ "NOTHING", "INDEX", "AUTO-DISTINCT-STATIC", "AUTO-DISTINCT-SINGLE", "AUTO-DISTINCT-ALL", "UNSPECIFIED", "ORDER-TRANSPORT", "MIX" ] },
+                            "CurrencyIndex": { "type": "number", "maximum": 15 },
+                            "CurrencyOrder": { "type": "number", "minimum": 1, "maximum": 2 },
+                            "Denomination": { "type": "string", "enum": [ "INDEX", "AUTO-DISTINCT-STATIC", "AUTO-DISTINCT-SINGLE", "AUTO-DISTINCT-ALL", "UNSPECIFIED", "ORDER-TRANSPORT", "GROUP", "MIX" ] },
+                            "DenomiIndex": { "type": "number", "maximum": 255 },
+                            "DenomiOrder": { "type": "number", "minimum": 1, "maximum": 2 },
+                            "GroupIndex": { "type": "number", "maximum": 15 },
+                            "NoteVersion": { "type": "string", "enum": [ "NEW", "OLD", "OLD2", "OLD3", "MIX" ] },
+                            "Direction": { "type": "string", "minLength": 1, "maxLength": 4, "pattern": "^[A-D]+$" },
+                            "NoteType": { "type": "string", "enum": [ "ATM", "TLR", "FIT", "UNFIT", "MIX" ] }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

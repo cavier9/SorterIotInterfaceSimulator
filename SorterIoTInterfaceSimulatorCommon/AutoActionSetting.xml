@@ -1,0 +1,25 @@
+﻿<root>
+
+  <!--自動実行機能(true:有効／false:無効)-->
+  <AutoAction>false</AutoAction>
+
+  <!--自動実行機能 CreateSession Command 自動送信 (true:有効／false:無効)-->
+  <AutoAction_CreateSession>true</AutoAction_CreateSession>
+  <!--自動実行機能 CreateSession Command 自動送信 システム名-->
+  <AutoAction_CreateSession_SystemName>Auto CreateSession System 01</AutoAction_CreateSession_SystemName>
+  <!--自動実行機能 CreateSession Command 自動送信 システムバージョン-->
+  <AutoAction_CreateSession_SystemVersion>0.0.0.0</AutoAction_CreateSession_SystemVersion>
+
+  <!--自動実行機能 GetDeviceInformation Command 自動送信 (true:有効／false:無効)-->
+  <AutoAction_GetDeviceInformation>false</AutoAction_GetDeviceInformation>
+
+  <!--自動実行機能 SetOperator Command 自動送信 (true:有効／false:無効)-->
+  <AutoAction_SetOperator>false</AutoAction_SetOperator>
+  <!--自動実行機能 SetOperator Command 自動送信 ログインID-->
+  <AutoAction_SetOperator_ID>123</AutoAction_SetOperator_ID>
+  <!--自動実行機能 SetOperator Command 自動送信 ログインPassword-->
+  <AutoAction_SetOperator_Password>456</AutoAction_SetOperator_Password>
+  <!--自動実行機能 SetOperator Command 自動送信 ログアウト実行 (true:有効／false:無効)-->
+  <AutoAction_SetOperator_Logout>false</AutoAction_SetOperator_Logout>
+
+</root>

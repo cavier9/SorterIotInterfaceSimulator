@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for ButtonTouched event",
+    "type": "object",
+    "required": [ "ButtonType" ],
+    "additionalProperties": false,
+    "properties": {
+        "ButtonType": { "type": "string", "enum": [ "ACCEPT", "START", "STOP", "CANCEL", "RESET" ] }
+    }
+}

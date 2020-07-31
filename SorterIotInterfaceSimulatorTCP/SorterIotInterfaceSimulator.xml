@@ -1,0 +1,13 @@
+﻿<root>
+
+  <!--Message setting -->
+  <!--Note: Japanese folder names and file names are prohibited-->
+  <LeadFileName>.\Message\001_CreateSession.txt</LeadFileName>
+
+  <!--TCP setting -->
+  <TcpPortNo>48211</TcpPortNo>
+  <TcpAddress>10.10.10.3</TcpAddress>
+  <TcpDownloadFile>.\TcpDownloadFile\TcpDownloadFile.dat</TcpDownloadFile>
+  <TcpUploadFolder>.\TcpUploadFolder\</TcpUploadFolder>
+
+</root>

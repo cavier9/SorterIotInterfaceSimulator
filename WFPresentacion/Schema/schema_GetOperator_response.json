@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for GetOperator response",
+    "type": "object",
+    "required": [ "Result", "ID" ],
+    "additionalProperties": false,
+    "properties": {
+        "Result": { "type": "string", "enum": [ "200 Success", "400 Bad Request", "500 Internal Device Error", "204 No Content", "402 Invalid Command", "501 Locked by other system" ] },
+        "ID": { "type": [ "string", "null" ], "minLength": 0, "maxLength": 12 }
+    }
+}

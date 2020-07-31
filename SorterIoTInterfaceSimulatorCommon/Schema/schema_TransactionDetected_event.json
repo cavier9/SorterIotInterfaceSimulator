@@ -1,0 +1,42 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for TransactionDetected event",
+    "type": "object",
+    "required": [ "CurrencyIndex", "PatternIndex", "TransactionData", "TranKey" ],
+    "additionalProperties": false,
+    "properties": {
+        "CurrencyIndex": { "type": "integer", "minimum": -1, "maximum": 15 },
+        "PatternIndex": { "type": "number", "maximum": 9 },
+        "TransactionData": {
+            "type": "object",
+            "required": [ "StartDateTime", "EndDateTime", "TotalCount" ],
+            "additionalProperties": false,
+            "properties": {
+                "StartDateTime": { "type": "string", "format": "date-time" },
+                "EndDateTime": { "type": "string", "format": "date-time" },
+                "UserID": { "type": "string", "minLength": 1, "maxLength": 12 },
+                "TotalCount": { "type": "number" },
+                "TotalAmount": { "type": "number" },
+                "Counts": {
+                    "type": "array",
+                    "maxItems": 256,
+                    "items": {
+                        "type": "object",
+                        "required": [ "DenomiIndex" ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "DenomiIndex": { "type": "number", "minimum": 0, "maximum": 255 },
+                            "ATM": { "type": "number" },
+                            "TELLER": { "type": "number", "minimum": 0 },
+                            "UNFIT": { "type": "number", "minimum": 0 },
+                            "Manual": { "type": "number", "minimum": 0 },
+                            "Suspect": { "type": "number", "minimum": 0 },
+                            "Counterfeit": { "type": "number", "minimum": 0 }
+                        }
+                    }
+                }
+            }
+        },
+        "TranKey": { "type": "string", "minLength": 1, "maxLength": 32 }
+    }
+}

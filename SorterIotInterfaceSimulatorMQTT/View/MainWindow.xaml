@@ -1,0 +1,218 @@
+﻿<Window x:Class="SorterIotInterfaceSimulator.View.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SorterIotInterfaceSimulator.View"
+        xmlns:v="clr-namespace:SorterIotInterfaceSimulator.CustomView"
+        xmlns:src="clr-namespace:SorterIotInterfaceSimulator.View"
+        mc:Ignorable="d"
+        Title="Sorter IoT Interface Simulator (USF-200)" Height="699" Width="1103.667" Closing="Window_Closing">
+
+    <Window.Resources>
+        <AlternationConverter x:Key="AlternationConverter"/>
+    </Window.Resources>
+
+    <!-- 2×2マスGrid -->
+    <Grid Margin="0,0,0,0" Background="#FFC5BEBE">
+        <!-- 横2列を定義 -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5"/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="591"/>
+        </Grid.ColumnDefinitions>
+        <!-- 縦2行を定義 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="145"/>
+            <RowDefinition Height="105"/>
+            <RowDefinition/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+
+        <!-- サーバ接続ボタン -->
+        <Button Grid.Column="1" Grid.Row="0" x:Name="ConnectServer1" Content="Connect Broker"
+			HorizontalAlignment="Left" Margin="4,15,0,0" VerticalAlignment="Top" Width="168"
+			Click="SendConnect" RenderTransformOrigin="0.07,0.489" Height="24" />
+
+        <!-- サーバ切断ボタン -->
+        <Button Grid.Column="1" Grid.Row="0" x:Name="DisconnetServer1" Content="Disconnect Broker"
+			HorizontalAlignment="Left" Margin="4,43,0,0" VerticalAlignment="Top" Width="168"
+			Click="SendDisconnect" Height="24" />
+
+        <!-- 接続設定 -->
+
+        <Label Grid.Column="1" Content="Host Name" HorizontalAlignment="Left" 
+			Margin="176,15,0,0" VerticalAlignment="Top" Height="24" Width="75"/>
+        <TextBox x:Name="HostNameTextBox1"  HorizontalAlignment="Left" Height="24" Margin="256,15,0,0" TextWrapping="Wrap" Text="{Binding HostName}" VerticalAlignment="Top" Width="120" Grid.Column="1" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Grid.Column="1" Content="User Name" HorizontalAlignment="Left" 
+			Margin="176,43,0,0" VerticalAlignment="Top" Height="24" Width="75"/>
+        <TextBox x:Name="UserNameTextBox1"  HorizontalAlignment="Left" Height="24" Margin="256,43,0,0" TextWrapping="Wrap" Text="{Binding UserName}" VerticalAlignment="Top" Width="120" Grid.Column="1" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Grid.Column="1" Content="Password" HorizontalAlignment="Left" 
+			Margin="186,71,0,0" VerticalAlignment="Top" Height="24" Width="65"/>
+        <TextBox x:Name="PasswordTextBox1"  HorizontalAlignment="Left" Height="24" Margin="256,71,0,0" TextWrapping="Wrap" Text="{Binding Password}" VerticalAlignment="Top" Width="120" Grid.Column="1" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Content="TLS Port" HorizontalAlignment="Left" 
+			Margin="403,15,0,0" VerticalAlignment="Top" Width="60" Height="24" Grid.Column="1"/>
+        <TextBox x:Name="PortNo1"  HorizontalAlignment="Left" Height="24" Margin="463,15,0,0" TextWrapping="Wrap" 
+			Text="{Binding PortNo}" VerticalAlignment="Top" Width="102" Grid.Column="1" Grid.ColumnSpan="2" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Content="TLS Validate" HorizontalAlignment="Left" 
+			Margin="381,43,0,78" VerticalAlignment="Center" Width="82" Height="24" Grid.Column="1"/>
+        <TextBox x:Name="Cirtificate1" HorizontalAlignment="Left" Height="24" Margin="463,43,0,0" TextWrapping="Wrap" 
+			Text="{Binding Cirtificate}" VerticalAlignment="Top" Width="102" Grid.Column="1" Grid.ColumnSpan="2" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Content="MQTT Client Name" HorizontalAlignment="Left" 
+			Margin="131,99,0,0" VerticalAlignment="Top" Width="120" Height="24" Grid.Column="1" />
+        <TextBox x:Name="SystemNameTextBox1" HorizontalAlignment="Left" Height="23" Margin="256,100,0,0" TextWrapping="Wrap" 
+			Text="{Binding SystemName}" VerticalAlignment="Top" Width="310" Grid.ColumnSpan="2" Grid.Column="1" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Content="ｼｽﾃﾑﾊﾞｰｼﾞｮﾝ" HorizontalAlignment="Left"  
+			Margin="150,105,0,0" VerticalAlignment="Top" Width="76" Height="28" Grid.Column="1" Visibility="Hidden"/>
+        <TextBox x:Name="SystemVersionTextBox1" HorizontalAlignment="Left" Height="23" Margin="231,108,0,0" TextWrapping="Wrap" 
+			Text="{Binding SystemVersion}" VerticalAlignment="Top" Width="315" Grid.ColumnSpan="2" Grid.Column="1" IsReadOnly="True" Visibility="Hidden" />
+
+        <Label Grid.Column="1" Content="Device No." HorizontalAlignment="Left" 
+			Margin="390,71,0,0" VerticalAlignment="Top" Height="24" Width="73"/>
+        <TextBox x:Name="DeviceName1" HorizontalAlignment="Left" Height="24" Margin="463,71,0,0" TextWrapping="Wrap" 
+			Text="{Binding DeviceName}" VerticalAlignment="Top" Width="102" Grid.ColumnSpan="2" Grid.Column="1" IsReadOnly="True" IsEnabled="False" />
+
+        <!-- Downloadフォルダ -->
+        <Label Grid.Column="2" Content="Download Dst Folder" HorizontalAlignment="Left" 
+			Margin="77,102,0,0" VerticalAlignment="Top" Height="24" RenderTransformOrigin="0.481,0.119" Width="132"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="215,102,0,0" TextWrapping="Wrap" 
+			Text="{Binding DownloadFolderName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="360" Grid.Column="2"/>
+
+        <!-- Uploadフォルダ -->
+        <Label Grid.Column="2" Content="Upload Src Folder" HorizontalAlignment="Left" 
+			Margin="96,127,0,0" VerticalAlignment="Top" Height="24" RenderTransformOrigin="0.481,0.119" Grid.RowSpan="2" Width="113"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="215,127,0,0" TextWrapping="Wrap" 
+			Text="{Binding UploadFolderName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="360" Grid.Column="2" Grid.RowSpan="2" />
+
+        <!-- メッセージファイル -->
+        <Button x:Name="LeadMessage1" Content="Read Message" 
+			HorizontalAlignment="Left" VerticalAlignment="Top"  Width="111"
+			Click="LeadMessage" Margin="5,43,0,0" Height="24" Grid.Row="1" Grid.Column="1" />
+        <TextBox x:Name="LeadFileName1" HorizontalAlignment="Left" Height="24" Margin="121,43,0,0" TextWrapping="Wrap" 
+			Text="{Binding LeadFileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="488" Grid.Row="1" Grid.Column="1" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2"/>
+
+        <!-- メッセージファイル選択 -->
+        <Button Grid.Column="2" x:Name="SelectMessage1" Content="Select" 
+			HorizontalAlignment="Left" VerticalAlignment="Top" Width="50"
+			Click="SelectMessage" Margin="114,43,0,0" Height="24" Grid.Row="1"/>
+
+        <!-- 送信(Detail使用)ボタン -->
+
+        <!-- 送信(JSON生)ボタン -->
+        <Button Grid.Column="1" x:Name="PublishJson1" Content="Send" 
+			HorizontalAlignment="Left" VerticalAlignment="Top" Width="70"
+			Click="SendPublishJson" Margin="5,73,0,0" Height="24" Grid.Row="1" />
+
+        <!-- 送信先Topic欄 -->
+        <Label Grid.Column="1" Content="Topic" HorizontalAlignment="Left" 
+			Margin="80,73,0,0" VerticalAlignment="Top" Height="24" Grid.Row="1" RenderTransformOrigin="0.481,0.119"/>
+        <TextBox x:Name="Topic1" HorizontalAlignment="Left" Height="24" Margin="121,73,0,0" TextWrapping="Wrap" 
+			Text="{Binding Topic}" VerticalAlignment="Top" Width="380" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"/>
+
+
+        <!-- 送信メッセージTextBox -->
+        <v:CustomTextBox Grid.Column="1" Grid.Row="2" x:Name="SendMessageTextBox1"
+			Text="{Binding SendMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Height="Auto" VerticalAlignment="Stretch" />
+
+        <!-- メッセージログラベル -->
+        <Label Grid.Column="2"  Grid.Row="1" x:Name="RecvLabel1" Content="Message log" HorizontalAlignment="Left" 
+			VerticalAlignment="Center" Width="82" Margin="490,76,0,3" Height="26"/>
+        <!-- メッセージログTextBox -->
+        <v:CustomTextBox Grid.Column="2" Grid.Row="2" x:Name="MessageLogTextBox1" Margin="10,0,0,0"
+			Text="{Binding MessageLog, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsReadOnly="True"
+            Height="Auto" VerticalAlignment="Stretch" TextChanged="MessageLogTextBox1_TextChanged" Width="565"  />
+
+        <!-- FTP接続設定 -->
+        <Label Grid.Column="2" Content="FTP Configuration" HorizontalAlignment="Left" 
+			Margin="74,4,0,117" VerticalAlignment="Center" Width="114" Height="24" RenderTransformOrigin="0.5,0.5"/>
+
+        <Label Grid.Column="2" Content="Host Name" HorizontalAlignment="Left" 
+			Margin="74,26,0,95" VerticalAlignment="Center" Width="75" Height="24"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="147,26,0,0" TextWrapping="Wrap" 
+			Text="{Binding FtpHostName}" VerticalAlignment="Top" Width="120" Grid.Column="2" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Grid.Column="2" Content="Port" HorizontalAlignment="Left" 
+			Margin="115,52,0,69" VerticalAlignment="Center" Width="34" Height="24"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="147,52,0,0" TextWrapping="Wrap" 
+			Text="{Binding FtpPortNo}" VerticalAlignment="Top" Width="120" Grid.Column="2" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Grid.Column="2" Content="User Name" HorizontalAlignment="Left" 
+        	Margin="272,26,0,95" VerticalAlignment="Center" Width="75" Height="24"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="350,26,0,0" TextWrapping="Wrap" 
+        	Text="{Binding FtpUserName}" VerticalAlignment="Top" Width="110" Grid.Column="2" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Grid.Column="2" Content="Password" HorizontalAlignment="Left" 
+        	Margin="282,52,0,69" VerticalAlignment="Center" Width="65" Height="24" RenderTransformOrigin="0.46,1.768"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="350,52,0,0" TextWrapping="Wrap" 
+        	Text="{Binding FtpPassword}" VerticalAlignment="Top" Width="110" Grid.Column="2" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Grid.Column="2" Content="TLS" HorizontalAlignment="Left" 
+        	Margin="488,26,0,95" VerticalAlignment="Center" Width="32" Height="24"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="525,26,0,0" TextWrapping="Wrap" 
+        	Text="{Binding FtpTls}" VerticalAlignment="Top" Width="50" Grid.Column="2" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Grid.Column="2" Content="Validate" HorizontalAlignment="Left" 
+        	Margin="464,52,0,69" VerticalAlignment="Center" Width="56" Height="24"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="525,52,0,0" TextWrapping="Wrap" 
+        	Text="{Binding FtpCirtificate}" VerticalAlignment="Top" Width="50" Grid.Column="2" IsReadOnly="True" IsEnabled="False" />
+
+        <Label Grid.Column="2" Content="SSL Mode" HorizontalAlignment="Left" 
+        	Margin="427,77,0,44" VerticalAlignment="Center" Width="67" Height="24"/>
+        <TextBox x:Name="FtpSslMode"  HorizontalAlignment="Left" Height="24" Margin="499,77,0,0" TextWrapping="Wrap" 
+        	Text="{Binding FtpSslMode}" VerticalAlignment="Top" Width="76" Grid.Column="2" IsReadOnly="True" IsEnabled="False" />
+
+
+        <Button Grid.Column="2" Content="Subscribe" 
+        	HorizontalAlignment="Left" VerticalAlignment="Top" Width="67"
+        	Click="SendSubscribe" Margin="12,73,0,0" Height="24" Grid.Row="1"/>
+        <Button Grid.Column="2" Content="UnSubscribe" 
+        	HorizontalAlignment="Left" VerticalAlignment="Top" Width="82"
+        	Click="SendUnSubscribe" Margin="84,73,0,0" Height="24" Grid.Row="1" />
+
+
+        <Label Grid.Column="2" Content="FTP Folder" HorizontalAlignment="Left" 
+        	Margin="137,7,0,0" VerticalAlignment="Top" Width="73" Height="24" RenderTransformOrigin="0.481,0.119" Grid.Row="1"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="215,7,0,0" TextWrapping="Wrap" 
+        	Text="{Binding FtpFolderName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="360" Grid.Column="2" Grid.Row="1" />
+
+        <Button Grid.Column="2" Content="CreateDir" 
+        	HorizontalAlignment="Left" VerticalAlignment="Top" Width="76"
+        	Click="CreateDirFTP" Margin="255,34,0,0" Height="24" Grid.Row="1"
+        	ToolTip="CreateDir [FTP Folder]" />
+        <Button Grid.Column="2" Content="Upload" 
+        	HorizontalAlignment="Left" VerticalAlignment="Top" Width="76"
+        	Click="UploadFilesFTP" Margin="336,34,0,0" Height="24" Grid.Row="1"
+        	ToolTip="Upload the file in [Upload Scr Folder] to [FTP Folder]" />
+        <Button Grid.Column="2" Content="Download" 
+        	HorizontalAlignment="Left" VerticalAlignment="Top" Width="76"
+        	Click="DownloadFilesFTP" Margin="417,34,0,0" Height="24" Grid.Row="1"
+        	ToolTip="Download the file in [Upload Scr Folder] to [FTP Folder]" />
+        <Button Grid.Column="2" Content="RemoveDir" 
+        	HorizontalAlignment="Left" VerticalAlignment="Top" Width="76"
+        	Click="RemoveDirFTP" Margin="498,34,-51,0" Height="24" Grid.Row="1"
+        	ToolTip="RemoveDir [FTP Folder]" />
+
+        <!--
+        <Label Grid.Column="2" Content="フォルダ" HorizontalAlignment="Left" 
+        	Margin="105,71,0,21" VerticalAlignment="Center" Width="62" Height="28" Grid.Row="1" RenderTransformOrigin="0.46,1.768"/>
+        <TextBox HorizontalAlignment="Left" Height="24" Margin="160,73,0,0" TextWrapping="Wrap" 
+        	Text="{Binding FtpFolderPath}" VerticalAlignment="Top" Width="298" Grid.Column="2" Grid.Row="1"/>
+        <Button Grid.Column="2" x:Name="SelectFtpFolder" Content="選択" 
+        	HorizontalAlignment="Left" VerticalAlignment="Top" Width="37"
+        	Command="{Binding SelectFtpFolder}" Margin="458,73,0,0" Height="24" Grid.Row="1"/>
+        -->
+
+        <Button Grid.Column="2" Content="ClearLog"
+            HorizontalAlignment="Left" VerticalAlignment="Top" Width="76"
+            Click="ClearLog" Margin="255,73,0,0" Height="24" Grid.Row="1"/>
+        <Slider x:Name="FontSizeSlider" Grid.Column="2" HorizontalAlignment="Left" Margin="490,61,0,0" VerticalAlignment="Top" Width="80" Maximum="16" Minimum="8" Value="12" ValueChanged="FontSizeSlider_ValueChanged" SmallChange="1" Grid.Row="1"/>
+
+    </Grid>
+</Window>

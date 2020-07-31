@@ -1,0 +1,28 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for GetCountingResult response",
+    "type": "object",
+    "required": [ "Result", "TotalCount" ],
+    "additionalProperties": false,
+    "properties": {
+        "Result": { "type": "string", "enum": [ "200 Success", "400 Bad Request", "500 Internal Device Error", "402 Invalid Command", "501 Locked by other system" ] },
+        "Counts": {
+            "type": [ "array", "null" ],
+            "maxItems": 256,
+            "items": {
+                "type": "object",
+                "required": [ "DenomiIndex" ],
+                "additionalProperties": false,
+                "properties": {
+                    "DenomiIndex": { "type": "number", "minimum": 0, "maximum": 255 },
+                    "ATM": { "type": "number" },
+                    "TELLER": { "type": "number", "minimum": 0 },
+                    "UNFIT": { "type": "number", "minimum": 0 },
+                    "Suspect": { "type": "number", "minimum": 0 },
+                    "Counterfeit": { "type": "number", "minimum": 0 }
+                }
+            }
+        },
+        "TotalCount": { "type": [ "number", "null" ], "minimum": 0 }
+    }
+}

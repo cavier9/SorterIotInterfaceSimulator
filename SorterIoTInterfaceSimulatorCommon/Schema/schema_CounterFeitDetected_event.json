@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for CounterfeitDetected event",
+    "type": "object",
+    "required": [ "NoteInformation" ],
+    "additionalProperties": false,
+    "properties": {
+        "NoteInformation":{
+            "type": "object",
+            "required":[ "DenomiIndex", "Category", "Factor", "Key", "SerialNumber" ],
+            "additionalProperties": false,
+            "properties": {
+                "DenomiIndex": { "type": "integer", "minimum":0, "maximum": 255 },
+                "Category": { "type": "string", "enum": [ "Reject", "Counterfeit", "Suspect", "ATM", "TLR", "Unfit" ] },
+                "Factor": { "type":"string", "minLength": 0, "maxLength": 32 },
+                "Key": { "type":"string", "minLength": 19, "maxLength": 37 },
+                "SerialNumber": { "type":"string", "minLength": 0, "maxLength": 20 },
+                "SerialNumberLeft": { "type":"string", "minLength": 0, "maxLength": 20 },
+                "SerialNumberRight": { "type":"string", "minLength": 0, "maxLength": 20 },
+                "HotListNo": { "type":"integer", "minimum":1, "maximum": 100}
+            }
+        }
+    }
+}

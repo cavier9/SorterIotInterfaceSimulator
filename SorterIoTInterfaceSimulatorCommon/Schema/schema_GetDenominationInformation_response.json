@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for GetDenominationInformation response",
+    "type": "object",
+    "required": [ "Result", "Denomination" ],
+    "additionalProperties": false,
+    "properties": {
+        "Result": { "type": "string", "enum": [ "200 Success", "400 Bad Request", "500 Internal Device Error", "402 Invalid Command", "501 Locked by other system" ] },
+        "Denomination": {
+            "type": [ "array", "null" ],
+            "maxItems": 256,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "DenomiIndex": { "type": "number", "maximum": 255 },
+                    "Value": { "type": "number", "minimum": 1 },
+                    "CurrencyIndex": { "type": "number", "maximum": 15 },
+                    "Version": { "type": "number", "minimum": 0, "maximum": 3 }
+                }
+            }
+        }
+    }
+}

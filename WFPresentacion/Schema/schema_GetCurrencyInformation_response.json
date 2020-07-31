@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for GetCurrencyInformation response",
+    "type": "object",
+    "required": [ "Result", "Currencies" ],
+    "additionalProperties": false,
+    "properties": {
+        "Result": { "type": "string", "enum": [ "200 Success", "400 Bad Request", "500 Internal Device Error", "402 Invalid Command", "501 Locked by other system" ] },
+        "Currencies": {
+            "type": [ "array", "null" ],
+            "maxItems": 17,
+            "items": {
+                "type": "object",
+                "required": [ "CurrencyIndex", "CurrencyName" ],
+                "additionalProperties": false,
+                "properties": {
+                    "CurrencyIndex": { "type": "integer", "minimum": -1, "maximum": 15 },
+                    "CurrencyName": {"type": "string","minLength": 3,"maxLength": 3}
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for GetTransactionList command",
+    "type": [ "object" ],
+    "required": [ "StartDateTime", "EndDateTime" ],
+    "additionalProperties": false,
+    "properties": {
+        "StartDateTime": { "type": "string", "format": "date-time" },
+        "EndDateTime": { "type": "string", "format": "date-time" }
+    }
+}

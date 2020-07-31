@@ -1,0 +1,24 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for OperationOccured event",
+    "type": "object",
+    "required": [ "Operation" ],
+    "additionalProperties": false,
+    "properties": {
+        "Operation" : {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "ButtonTouchEvent" : {
+                    "type": "object",
+                    "required": [ "Name" ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "Name": { "type": "string" },
+                        "Text": { "type": "string" }
+                    }
+                }
+            }
+        }
+    }
+}

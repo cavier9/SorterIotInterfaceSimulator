@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for CountingResultUpdated event ",
+    "type": "object",
+    "required": [ "TotalCount" ],
+    "additionalProperties": false,
+    "properties": {
+        "Counts": {
+            "type": "array",
+            "maxItems": 256,
+            "items": {
+                "type": "object",
+                "required": [ "DenomiIndex" ],
+                "additionalProperties": false,
+                "properties": {
+                    "DenomiIndex": { "type": "number", "minimum": 0, "maximum": 255 },
+                    "ATM": { "type": "number" },
+                    "TELLER": { "type": "number", "minimum": 0 },
+                    "UNFIT": { "type": "number", "minimum": 0 },
+                    "Suspect": { "type": "number", "minimum": 0 },
+                    "Counterfeit": { "type": "number", "minimum": 0 }
+                }
+            }
+        },
+        "TotalCount": { "type": "number", "minimum": 0 }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for SetDateTime command",
+    "type": [ "object" ],
+    "required": [ "DateTime" ],
+    "additionalProperties": false,
+    "properties": {
+        "DateTime": { "type": "string", "format": "date-time" }
+    }
+}

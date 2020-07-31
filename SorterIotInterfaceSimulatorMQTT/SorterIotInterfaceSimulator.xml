@@ -1,0 +1,32 @@
+﻿<root>
+
+  <!--MQTT setting -->
+  <HostName>127.0.0.1</HostName>
+  <UserName>usf200</UserName>
+  <Password>glory</Password>
+  <DeviceName>015000000</DeviceName>
+  <PortNo>1883</PortNo>
+  <TLSVersion>1.0</TLSVersion>
+  <Cirtificate>false</Cirtificate>
+  <MqttClientName>MqttSystem015-1</MqttClientName>
+
+  <!--Message setting -->
+  <!--Note: Japanese folder names and file names are prohibited-->
+  <LeadFileName>.\Message\001_CreateSession.txt</LeadFileName>
+  <Topic>/glory/sorter/015000000/command</Topic>
+
+  <!--FTP setting -->
+  <FtpHostName>127.0.0.1</FtpHostName>
+  <FtpPortNo>21</FtpPortNo>
+  <FtpUserName>usf200</FtpUserName>
+  <FtpPassword>glory</FtpPassword>
+  <FtpTls>false</FtpTls>
+  <FtpCirtificate>false</FtpCirtificate>
+  <FtpSslMode>implicit</FtpSslMode>
+  <FtpFolderPath></FtpFolderPath>
+
+  <DownloadFolderName>.\DownloadFolder\</DownloadFolderName>
+  <UploadFolderName>.\UploadFolder\</UploadFolderName>
+  <FtpFolderName>/home/usf200/upload/</FtpFolderName>
+
+</root>

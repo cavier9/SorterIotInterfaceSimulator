@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for RequestUploadLogFile command",
+    "type": "object",
+    "required": [ "LogType" ],
+    "additionalProperties": false,
+    "properties": {
+        "LogType": { "type": "string", "enum": [ "ApplicationLog", "MachineLog" ] },
+        "UploadUri": {"type": "string","pattern": "^ftps?://([^/]+/)+$"}
+    }
+}

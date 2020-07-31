@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for Disconnected event",
+    "type": "object",
+    "required": [ "DeviceName"],
+    "additionalProperties": false,
+    "properties": {
+        "DeviceName": { "type": "string", "minLength": 9,"maxLength": 9, "pattern": "^[0-9]+$" }
+    }
+}

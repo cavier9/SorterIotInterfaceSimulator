@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for RequestDownloadUpgradeFile command",
+    "type": "object",
+    "required": [ "UpgradeType" ],
+    "additionalProperties": false,
+    "properties": {
+        "UpgradeType": { "type": "string", "enum": [ "AP-CPU","MC-CPU","BV","LANGUAGE" ] },
+        "DownloadUri": {"type": "string","pattern": "^ftps?://([^/]+/)+$"}
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for CreateSession command",
+    "type": "object",
+    "required": [ "SystemName", "SystemVersion" ],
+    "additionalProperties": false,
+    "properties": {
+        "SystemName": { "type": "string", "minLength": 1, "maxLength": 64 },
+        "SystemVersion": { "type": "string", "minLength": 1, "maxLength": 32 }
+    }
+}

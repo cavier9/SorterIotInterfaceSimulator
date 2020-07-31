@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for ScreenChanged event",
+    "type": "object",
+    "required": [ "ScreenInformation" ],
+    "additionalProperties": false,
+    "properties": {
+        "ScreenInformation" : {
+            "type": "object",
+            "required": [ "Event", "Type", "Name" ],
+            "additionalProperties": false,
+            "properties": {
+                "Event": { "type": "string", "enum" : [ "Show", "Close" ] },
+                "Type": { "type": "string", "enum" : [ "Popup", "Other" ] },
+                "Name": { "type": "string" }
+            }
+        }
+    }
+}

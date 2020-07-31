@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4E03BA3C-C179-4B6E-A5D5-5FCCEF71EE85}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WFPresentacion</RootNamespace>
+    <AssemblyName>WFPresentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>WFPresentacion.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icono_dowloand_k7U_icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5B4ECDDB06953A38A4B14836180D62896C6C15D4</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>WFPresentacion_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>WFPresentacion_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClasesEntidades\ClsAccess.cs" />
+    <Compile Include="ClasesEntidades\Entidades.cs" />
+    <Compile Include="CustomView\CustomTextBox.xaml.cs">
+      <DependentUpon>CustomTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrueba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrueba.Designer.cs">
+      <DependentUpon>frmPrueba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuario.Designer.cs">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\MainWindowViewModel.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tcp\TcpClientProtocol.cs" />
+    <Compile Include="ViewModel\AutoAction.cs" />
+    <Compile Include="ViewModel\MainWindowViewModel2.cs" />
+    <EmbeddedResource Include="frmPrueba.resx">
+      <DependentUpon>frmPrueba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuario.resx">
+      <DependentUpon>frmUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Schema\schema_ButtonTouched_event.json" />
+    <None Include="Schema\schema_CancelTransaction_command.json" />
+    <None Include="Schema\schema_CancelTransaction_response.json" />
+    <None Include="Schema\schema_CloseSession_command.json" />
+    <None Include="Schema\schema_CloseSession_response.json" />
+    <None Include="Schema\schema_common_message.json" />
+    <None Include="Schema\schema_Connected_event.json" />
+    <None Include="Schema\schema_CounterFeitDetected_event.json" />
+    <None Include="Schema\schema_CountingResultUpdated_event.json" />
+    <None Include="Schema\schema_CreateSession_command.json" />
+    <None Include="Schema\schema_CreateSession_response.json" />
+    <None Include="Schema\schema_CurrencyChanged_event.json" />
+    <None Include="Schema\schema_DeviceStatusUpdated_event.json" />
+    <None Include="Schema\schema_Disconnected_event.json" />
+    <None Include="Schema\schema_EndTransaction_command.json" />
+    <None Include="Schema\schema_EndTransaction_response.json" />
+    <None Include="Schema\schema_GetBatchSize_command.json" />
+    <None Include="Schema\schema_GetBatchSize_response.json" />
+    <None Include="Schema\schema_GetCountingResult_command.json" />
+    <None Include="Schema\schema_GetCountingResult_response.json" />
+    <None Include="Schema\schema_GetCurrencyInformation_command.json" />
+    <None Include="Schema\schema_GetCurrencyInformation_response.json" />
+    <None Include="Schema\schema_GetCurrency_command.json" />
+    <None Include="Schema\schema_GetCurrency_response.json" />
+    <None Include="Schema\schema_GetDateTime_command.json" />
+    <None Include="Schema\schema_GetDateTime_response.json" />
+    <None Include="Schema\schema_GetDenominationInformation_command.json" />
+    <None Include="Schema\schema_GetDenominationInformation_response.json" />
+    <None Include="Schema\schema_GetDeviceInformation_command.json" />
+    <None Include="Schema\schema_GetDeviceInformation_response.json" />
+    <None Include="Schema\schema_GetDeviceStatus_command.json" />
+    <None Include="Schema\schema_GetDeviceStatus_response.json" />
+    <None Include="Schema\schema_GetOperator_command.json" />
+    <None Include="Schema\schema_GetOperator_response.json" />
+    <None Include="Schema\schema_GetStackerPatternDetail_command.json" />
+    <None Include="Schema\schema_GetStackerPatternDetail_response.json" />
+    <None Include="Schema\schema_GetStackerPatternNumber_command.json" />
+    <None Include="Schema\schema_GetStackerPatternNumber_response.json" />
+    <None Include="Schema\schema_GetTransactionData_command.json" />
+    <None Include="Schema\schema_GetTransactionData_response.json" />
+    <None Include="Schema\schema_GetTransactionList_command.json" />
+    <None Include="Schema\schema_GetTransactionList_response.json" />
+    <None Include="Schema\schema_NoteTransported_event.json" />
+    <None Include="Schema\schema_OperationOccured_event.json" />
+    <None Include="Schema\schema_OperatorChanged_event.json" />
+    <None Include="Schema\schema_Reboot_command.json" />
+    <None Include="Schema\schema_Reboot_response.json" />
+    <None Include="Schema\schema_RequestDownloadSettingFile_command.json" />
+    <None Include="Schema\schema_RequestDownloadSettingFile_response.json" />
+    <None Include="Schema\schema_RequestDownloadUpgradeFile_command.json" />
+    <None Include="Schema\schema_RequestDownloadUpgradeFile_response.json" />
+    <None Include="Schema\schema_RequestUploadLogFile_command.json" />
+    <None Include="Schema\schema_RequestUploadLogFile_response.json" />
+    <None Include="Schema\schema_RequestUploadSettingFile_command.json" />
+    <None Include="Schema\schema_RequestUploadSettingFile_response.json" />
+    <None Include="Schema\schema_ResetStacker_command.json" />
+    <None Include="Schema\schema_ResetStacker_response.json" />
+    <None Include="Schema\schema_ScreenChanged_event.json" />
+    <None Include="Schema\schema_SessionClosed_event.json" />
+    <None Include="Schema\schema_SetBatchSize_command.json" />
+    <None Include="Schema\schema_SetBatchSize_response.json" />
+    <None Include="Schema\schema_SetCurrency_command.json" />
+    <None Include="Schema\schema_SetCurrency_response.json" />
+    <None Include="Schema\schema_SetDateTime_command.json" />
+    <None Include="Schema\schema_SetDateTime_response.json" />
+    <None Include="Schema\schema_SetExclusiveControl_command.json" />
+    <None Include="Schema\schema_SetExclusiveControl_response.json" />
+    <None Include="Schema\schema_SetHotList_command.json" />
+    <None Include="Schema\schema_SetHotList_response.json" />
+    <None Include="Schema\schema_SetOperator_command.json" />
+    <None Include="Schema\schema_SetOperator_response.json" />
+    <None Include="Schema\schema_SetStackerPatternNumber_command.json" />
+    <None Include="Schema\schema_SetStackerPatternNumber_response.json" />
+    <None Include="Schema\schema_StackerPatternChanged_event.json" />
+    <None Include="Schema\schema_StartCount_command.json" />
+    <None Include="Schema\schema_StartCount_response.json" />
+    <None Include="Schema\schema_StartTransaction_command.json" />
+    <None Include="Schema\schema_StartTransaction_response.json" />
+    <None Include="Schema\schema_StopCount_command.json" />
+    <None Include="Schema\schema_StopCount_response.json" />
+    <None Include="Schema\schema_TransactionDetected_event.json" />
+    <None Include="WFPresentacion_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SorterIotInterfaceSdk\SorterIotInterfaceSdk.csproj">
+      <Project>{b1bb6d7f-c7b0-4fb6-b0f4-ec8689e57c5b}</Project>
+      <Name>SorterIotInterfaceSdk</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SorterIoTInterfaceSimulatorCommon\SorterIoTInterfaceSimulatorCommon.csproj">
+      <Project>{fbde1e95-7cd5-426c-b83a-cfe7e1f06de0}</Project>
+      <Name>SorterIoTInterfaceSimulatorCommon</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\Newtonsoft.Json.dll" />
+    <Content Include="dll\Newtonsoft.Json.Schema.dll" />
+    <Content Include="icono_dowloand_k7U_icon.ico" />
+    <Content Include="Message\001_CreateSession.txt" />
+    <Content Include="Message\002_CloseSession.txt" />
+    <Content Include="Message\003_SetExclusiveControl_MaintenanceOccupation.txt" />
+    <Content Include="Message\003_SetExclusiveControl_TransactionOccupation.txt" />
+    <Content Include="Message\003_SetExclusiveControl_UnlockOccupation.txt" />
+    <Content Include="Message\101_GetDeviceStatus.txt" />
+    <Content Include="Message\102_GetDeviceInformation.txt" />
+    <Content Include="Message\103_GetDenominationInformation.txt" />
+    <Content Include="Message\104_GetCurrencyInformation.txt" />
+    <Content Include="Message\105_GetCountingResult.txt" />
+    <Content Include="Message\106_GetTransactionList.txt" />
+    <Content Include="Message\107_GetTransactionData.txt" />
+    <Content Include="Message\108_GetStackerPatternDetail.txt" />
+    <Content Include="Message\201_GetBatchSize.txt" />
+    <Content Include="Message\202_SetBatchSize.txt" />
+    <Content Include="Message\203_GetStackerPatternNumber.txt" />
+    <Content Include="Message\204_SetStackerPatternNumber.txt" />
+    <Content Include="Message\205_GetCurrency.txt" />
+    <Content Include="Message\206_SetCurrency.txt" />
+    <Content Include="Message\207_GetDateTime.txt" />
+    <Content Include="Message\208_SetDateTime.txt" />
+    <Content Include="Message\209_GetOperator.txt" />
+    <Content Include="Message\210_SetOperator_Login.txt" />
+    <Content Include="Message\210_SetOperator_Logout.txt" />
+    <Content Include="Message\401_StartTransaction.txt" />
+    <Content Include="Message\402_EndTransaction.txt" />
+    <Content Include="Message\403_CancelTransaction.txt" />
+    <Content Include="Message\404_StartCount.txt" />
+    <Content Include="Message\405_StopCount.txt" />
+    <Content Include="Message\406_ResetStacker.txt" />
+    <Content Include="Message\501_Reboot.txt" />
+    <Content Include="Message\502_RequestUploadLogFile_1.txt" />
+    <Content Include="Message\502_RequestUploadLogFile_2.txt" />
+    <Content Include="Message\503_RequestUploadSettingFile_1.txt" />
+    <Content Include="Message\503_RequestUploadSettingFile_2.txt" />
+    <Content Include="Message\503_RequestUploadSettingFile_3.txt" />
+    <Content Include="Message\503_RequestUploadSettingFile_4.txt" />
+    <Content Include="Message\503_RequestUploadSettingFile_5x.txt" />
+    <Content Include="Message\503_RequestUploadSettingFile_6.txt" />
+    <Content Include="Message\503_RequestUploadSettingFile_7.txt" />
+    <Content Include="Message\503_RequestUploadSettingFile_8.txt" />
+    <Content Include="Message\503_RequestUploadSettingFile_9.txt" />
+    <Content Include="Message\504_RequestDownloadSettingFile_1.txt" />
+    <Content Include="Message\504_RequestDownloadSettingFile_2.txt" />
+    <Content Include="Message\504_RequestDownloadSettingFile_3.txt" />
+    <Content Include="Message\504_RequestDownloadSettingFile_4.txt" />
+    <Content Include="Message\504_RequestDownloadSettingFile_5x.txt" />
+    <Content Include="Message\504_RequestDownloadSettingFile_6.txt" />
+    <Content Include="Message\504_RequestDownloadSettingFile_7.txt" />
+    <Content Include="Message\504_RequestDownloadSettingFile_8.txt" />
+    <Content Include="Message\504_RequestDownloadSettingFile_9.txt" />
+    <Content Include="Message\505_RequestDownloadUpgradeFile_1.txt" />
+    <Content Include="Message\505_RequestDownloadUpgradeFile_2.txt" />
+    <Content Include="Message\505_RequestDownloadUpgradeFile_3.txt" />
+    <Content Include="Message\505_RequestDownloadUpgradeFile_4.txt" />
+    <Content Include="Message\601_SetHotList.txt" />
+    <None Include="Resources\cashmaching.png" />
+    <Resource Include="SorterIotInterfaceSimulator.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="TcpDownloadFile\" />
+    <Folder Include="TcpUploadFolder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CustomView\CustomTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy /y "$(ProjectDir)SorterIotInterfaceSimulator.xml" "$(TargetDir)"
+copy /y "$(ProjectDir)\..\SorterIoTInterfaceSimulatorCommon\AutoActionSetting.xml" "$(TargetDir)"
+md "$(TargetDir)TcpDownloadFile
+md "$(TargetDir)TcpUploadFolder
+md "$(TargetDir)Message
+copy /y "$(ProjectDir)\Message\*.*" "$(TargetDir)Message"
+md "$(TargetDir)Schema
+copy /y "$(ProjectDir)\..\SorterIoTInterfaceSimulatorCommon\Schema\*.*" "$(TargetDir)Schema"
+</PostBuildEvent>
+  </PropertyGroup>
+</Project>

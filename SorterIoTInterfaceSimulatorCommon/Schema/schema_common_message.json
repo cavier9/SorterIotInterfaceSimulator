@@ -1,0 +1,14 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Common message format",
+    "type": "object",
+    "required": [ "Type", "Name" ],
+    "additionalProperties": false,
+    "properties": {
+        "Type": { "type": "string", "enum": [ "Command", "Response", "Event" ] },
+        "Name": { "type": "string", "minLength": 1, "maxLength": 32 },
+        "Detail": { "type": "object" },
+        "Version": { "type": "number", "minimum": 1 },
+        "ID": { "type": "string", "minLength": 1, "maxLength": 64 }
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for SetExclusiveControl command",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "Transaction": { "type": "boolean" },
+        "Maintenance": { "type": "boolean" }
+    }
+}

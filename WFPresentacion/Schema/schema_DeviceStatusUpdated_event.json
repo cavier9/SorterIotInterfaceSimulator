@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for DeviceStatusUpdated event",
+    "type": "object",
+    "required": [ "Transaction", "Maintenance", "ApplicationStatus", "DeviceStatus" ],
+    "additionalProperties": false,
+    "properties": {
+        "Transaction": { "type": "boolean" },
+        "Maintenance": { "type": "boolean" },
+        "ApplicationStatus": { "type": "string", "enum": [ "Neutral Ready", "Neutral Remain", "Neutral Error", "Neutral Restoring", "Counting Ready", "Counting Busy", "Counting Error", "Counting Restoring" ] },
+        "DeviceStatus": {
+            "type": "object",
+            "required": [ "Status", "CountMode", "HopperStatus", "RejectStatus", "StackerStatus" ],
+            "additionalProperties": false,
+            "properties": {
+                "Status": { "type": "string", "enum": [ "Good", "Error" ] },
+                "ErrorCode": { "type": "string", "minLength": 4, "maxLength": 4, "pattern": "^[0-9,A-F]+$" },
+                "ErrorName": { "type": "string", "minLength": 1, "maxLength": 32 },
+                "CountMode": { "type": "boolean" },
+                "HopperStatus": {
+                    "type": "object",
+                    "required": [ "Exist", "FailFeed" ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "Exist": { "type": "boolean" },
+                        "FailFeed": { "type": "boolean" }
+                    }
+                },
+                "RejectStatus": {
+
+                    "type": "object",
+                    "required": [ "Exist", "Full", "Waiting" ],
+                    "additionalProperties": false,
+                    "properties": {
+                        "Exist": { "type": "boolean" },
+                        "Full": { "type": "boolean" },
+                        "Waiting": { "type": "boolean" }
+                    }
+                },
+                "StackerStatus": {
+                    "type": "array",
+                    "maxItems": 2,
+                    "items": {
+                        "type": "object",
+                        "required": [ "Exist", "Full", "Batch", "Error", "Waiting", "Restoring" ],
+                        "additionalProperties": false,
+                        "properties": {
+                            "Exist": { "type": "boolean" },
+                            "Full": { "type": "boolean" },
+                            "Batch": { "type": "boolean" },
+                            "Error": { "type": "boolean" },
+                            "Waiting": { "type": "boolean" },
+                            "Restoring": { "type": "boolean" }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

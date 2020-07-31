@@ -1,0 +1,11 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Schema for RequestDownloadSettingFile command",
+    "type": "object",
+    "required": [ "SettingType" ],
+    "additionalProperties": false,
+    "properties": {
+        "SettingType": { "type": "string", "pattern": "^(BatchCountConfiguration|DenominationDefinition|FactoryConfiguration|Fit-UnFitConfiguration|Fit-UnFitConfiguration_([1-9]|1[0-9]|20)|MachineConfiguration|NoteInformationOutputConfiguration|StackerConfiguration|True-FalseConfiguration)$" },
+        "DownloadUri": { "type": "string", "pattern": "^ftps?://([^/]+/)+$" }
+    }
+}

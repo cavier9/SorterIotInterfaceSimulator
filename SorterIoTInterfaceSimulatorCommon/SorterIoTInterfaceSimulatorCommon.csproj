@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FBDE1E95-7CD5-426C-B83A-CFE7E1F06DE0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SorterIoTInterfaceSimulatorCommon</RootNamespace>
+    <AssemblyName>SorterIoTInterfaceSimulatorCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>WFPresentacion_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json.Schema, Version=2.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>dll\Newtonsoft.Json.Schema.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Logic\AutoActionAbstract.cs" />
+    <Compile Include="Logic\AutoAction\AutoAction_Base.cs" />
+    <Compile Include="Logic\AutoAction\AutoAction_SetOperator.cs" />
+    <Compile Include="Logic\AutoAction\AutoAction_CreateSession.cs" />
+    <Compile Include="Logic\AutoAction\AutoAction_GetDeviceInformation.cs" />
+    <Compile Include="Logic\Validate.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Schema\schema_ButtonTouched_event.json" />
+    <None Include="Schema\schema_CancelTransaction_command.json" />
+    <None Include="Schema\schema_CancelTransaction_response.json" />
+    <None Include="Schema\schema_CloseSession_command.json" />
+    <None Include="Schema\schema_CloseSession_response.json" />
+    <None Include="Schema\schema_common_message.json" />
+    <None Include="Schema\schema_Connected_event.json" />
+    <None Include="Schema\schema_CounterFeitDetected_event.json" />
+    <None Include="Schema\schema_CountingResultUpdated_event.json" />
+    <None Include="Schema\schema_CreateSession_command.json" />
+    <None Include="Schema\schema_CreateSession_response.json" />
+    <None Include="Schema\schema_CurrencyChanged_event.json" />
+    <None Include="Schema\schema_DeviceStatusUpdated_event.json" />
+    <None Include="Schema\schema_Disconnected_event.json" />
+    <None Include="Schema\schema_EndTransaction_command.json" />
+    <None Include="Schema\schema_EndTransaction_response.json" />
+    <None Include="Schema\schema_GetBatchSize_command.json" />
+    <None Include="Schema\schema_GetBatchSize_response.json" />
+    <None Include="Schema\schema_GetCountingResult_command.json" />
+    <None Include="Schema\schema_GetCountingResult_response.json" />
+    <None Include="Schema\schema_GetCurrencyInformation_command.json" />
+    <None Include="Schema\schema_GetCurrencyInformation_response.json" />
+    <None Include="Schema\schema_GetCurrency_command.json" />
+    <None Include="Schema\schema_GetCurrency_response.json" />
+    <None Include="Schema\schema_GetDateTime_command.json" />
+    <None Include="Schema\schema_GetDateTime_response.json" />
+    <None Include="Schema\schema_GetDenominationInformation_command.json" />
+    <None Include="Schema\schema_GetDenominationInformation_response.json" />
+    <None Include="Schema\schema_GetDeviceInformation_command.json" />
+    <None Include="Schema\schema_GetDeviceInformation_response.json" />
+    <None Include="Schema\schema_GetDeviceStatus_command.json" />
+    <None Include="Schema\schema_GetDeviceStatus_response.json" />
+    <None Include="Schema\schema_GetOperator_command.json" />
+    <None Include="Schema\schema_GetOperator_response.json" />
+    <None Include="Schema\schema_GetStackerPatternDetail_command.json" />
+    <None Include="Schema\schema_GetStackerPatternDetail_response.json" />
+    <None Include="Schema\schema_GetStackerPatternNumber_command.json" />
+    <None Include="Schema\schema_GetStackerPatternNumber_response.json" />
+    <None Include="Schema\schema_GetTransactionData_command.json" />
+    <None Include="Schema\schema_GetTransactionData_response.json" />
+    <None Include="Schema\schema_GetTransactionList_command.json" />
+    <None Include="Schema\schema_GetTransactionList_response.json" />
+    <None Include="Schema\schema_NoteTransported_event.json" />
+    <None Include="Schema\schema_OperationOccured_event.json" />
+    <None Include="Schema\schema_OperatorChanged_event.json" />
+    <None Include="Schema\schema_Reboot_command.json" />
+    <None Include="Schema\schema_Reboot_response.json" />
+    <None Include="Schema\schema_RequestDownloadSettingFile_command.json" />
+    <None Include="Schema\schema_RequestDownloadSettingFile_response.json" />
+    <None Include="Schema\schema_RequestDownloadUpgradeFile_command.json" />
+    <None Include="Schema\schema_RequestDownloadUpgradeFile_response.json" />
+    <None Include="Schema\schema_RequestUploadLogFile_command.json" />
+    <None Include="Schema\schema_RequestUploadLogFile_response.json" />
+    <None Include="Schema\schema_RequestUploadSettingFile_command.json" />
+    <None Include="Schema\schema_RequestUploadSettingFile_response.json" />
+    <None Include="Schema\schema_ResetStacker_command.json" />
+    <None Include="Schema\schema_ResetStacker_response.json" />
+    <None Include="Schema\schema_ScreenChanged_event.json" />
+    <None Include="Schema\schema_SessionClosed_event.json" />
+    <None Include="Schema\schema_SetBatchSize_command.json" />
+    <None Include="Schema\schema_SetBatchSize_response.json" />
+    <None Include="Schema\schema_SetCurrency_command.json" />
+    <None Include="Schema\schema_SetCurrency_response.json" />
+    <None Include="Schema\schema_SetDateTime_command.json" />
+    <None Include="Schema\schema_SetDateTime_response.json" />
+    <None Include="Schema\schema_SetExclusiveControl_command.json" />
+    <None Include="Schema\schema_SetExclusiveControl_response.json" />
+    <None Include="Schema\schema_SetHotList_command.json" />
+    <None Include="Schema\schema_SetHotList_response.json" />
+    <None Include="Schema\schema_SetOperator_command.json" />
+    <None Include="Schema\schema_SetOperator_response.json" />
+    <None Include="Schema\schema_SetStackerPatternNumber_command.json" />
+    <None Include="Schema\schema_SetStackerPatternNumber_response.json" />
+    <None Include="Schema\schema_StackerPatternChanged_event.json" />
+    <None Include="Schema\schema_StartCount_command.json" />
+    <None Include="Schema\schema_StartCount_response.json" />
+    <None Include="Schema\schema_StartTransaction_command.json" />
+    <None Include="Schema\schema_StartTransaction_response.json" />
+    <None Include="Schema\schema_StopCount_command.json" />
+    <None Include="Schema\schema_StopCount_response.json" />
+    <None Include="Schema\schema_TransactionDetected_event.json" />
+    <None Include="WFPresentacion_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dll\Newtonsoft.Json.dll" />
+    <Content Include="dll\Newtonsoft.Json.Schema.dll" />
+    <Resource Include="AutoActionSetting.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SorterIotInterfaceSdk\SorterIotInterfaceSdk.csproj">
+      <Project>{b1bb6d7f-c7b0-4fb6-b0f4-ec8689e57c5b}</Project>
+      <Name>SorterIotInterfaceSdk</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
